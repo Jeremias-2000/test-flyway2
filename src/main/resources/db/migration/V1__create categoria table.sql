@@ -1,5 +1,5 @@
-create table categoria(
+create table "public"."categoria"(
 	id int not null primary key,
-	descricao varchar(100) not null,
+	descricao text not null,
 	status int not null
 );

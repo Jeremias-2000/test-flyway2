@@ -24,7 +24,7 @@ public class ProdutoController {
 
     @PostMapping("/criar")
     @ResponseStatus(HttpStatus.CREATED)
-    public Produto criar(@RequestBody ProdutoDTO produto){
-        return produtoService.criarProduto(produto);
+    public void criar(@RequestBody ProdutoDTO produto){
+        produtoService.criarProduto(produto);
     }
 }

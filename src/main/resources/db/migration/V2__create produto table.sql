@@ -1,6 +1,6 @@
-create table produto(
-	id int  primary key,
-	descricao varchar(100) not null,
+create table "public"."produto"(
+	id serial primary key,
+	descricao text not null,
 	quantidade integer not null,
 	valor numeric not null,
 	status integer default 1,

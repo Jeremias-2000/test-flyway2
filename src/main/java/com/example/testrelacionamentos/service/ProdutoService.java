@@ -4,6 +4,7 @@ import com.example.testrelacionamentos.model.Categoria;
 import com.example.testrelacionamentos.model.Produto;
 import com.example.testrelacionamentos.model.ProdutoDTO;
 import com.example.testrelacionamentos.repository.ProdutoRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +19,8 @@ public class ProdutoService {
     public List<Produto> listarProdutos(){
         return produtoRepository.findAll();
     }
-    
-    public Produto criarProduto(ProdutoDTO dto){
+
+    public void criarProduto(ProdutoDTO dto){
         Produto produto = Produto.builder()
                 .descricao(dto.getDescricao())
                 .quantidade(dto.getQuantidade())
@@ -27,6 +28,6 @@ public class ProdutoService {
                 .status(dto.getStatus())
                 .categoria(new Categoria(dto.getCategoria()))
                 .build();
-        return produtoRepository.save(produto);
+        produtoRepository.save(produto);
     }
 }
